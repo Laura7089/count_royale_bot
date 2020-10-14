@@ -10,6 +10,6 @@ script:
 
 deploy:
   provider: script
-  script: base docker_push.sh
+  script: bash docker_push.sh
   on:
     branch: master

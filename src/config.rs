@@ -11,24 +11,24 @@ struct CliConfig {
     redis_address: Option<String>,
     /// The token to use to authenticate with discord.
     /// Falls back to the value of the DISCORD_TOKEN environment variable.
-    ///
     /// To get one, create an application + bot in the discord developer portal.
     #[structopt(short, long)]
     discord_token: Option<String>,
-    /// The port to use to connect to the Redis instance
-    /// Falls back to 6379
-    #[structopt(short, long)]
+    /// The port to use to connect to the Redis instance.
+    /// Falls back to 6379.
+    #[structopt(long)]
     redis_port: Option<u16>,
-    /// The username for the Redis database. Optional.
-    #[structopt(short, long)]
+    /// The username for the Redis database.
+    /// Optional.
+    #[structopt(long)]
     redis_user: Option<String>,
-    /// The password for the Redis database. Optional.
-    #[structopt(short, long)]
+    /// The password for the Redis database.
+    /// Optional.
+    #[structopt(long)]
     redis_pass: Option<String>,
     /// The database number to use.
-    ///
     /// Defaults to 0.
-    #[structopt(short, long)]
+    #[structopt(long)]
     redis_db: Option<i64>,
 }
 
@@ -52,9 +52,9 @@ impl CountniteConfig {
                         .unwrap_or(env::var("REDIS_ADDRESS")?),
                     cli_config.redis_port.unwrap_or(6379),
                 )),
-                db: 0,
-                username: None,
-                passwd: None,
+                db: cli_config.redis_db.unwrap_or(0),
+                username: cli_config.redis_user,
+                passwd: cli_config.redis_pass,
             },
         })
     }

@@ -1,5 +1,5 @@
 [package]
-name = "discord_counting_bot"
+name = "countnite"
 version = "0.1.0"
 authors = ["Laura Demkowicz-Duffy <edward70891@gmail.com>"]
 edition = "2018"

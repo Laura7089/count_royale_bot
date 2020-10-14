@@ -12,14 +12,14 @@ use serenity::{
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    info!("Starting Countly...");
+    info!("Starting Countnite...");
 
-    let config = config::CountlyConfig::get()?;
+    let config = config::CountniteConfig::get()?;
 
     let discord_client = serenity::Client::new(config.discord_token, DiscordEventHandler {})?;
     let redis_client = redis::Client::open(config.redis_connect)?;
 
-    let bot_client = Countly {
+    let bot_client = Countnite {
         discord_client,
         redis_client
     };
@@ -29,7 +29,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-struct Countly {
+struct Countnite {
     discord_client: serenity::Client,
     redis_client: redis::Client,
 }

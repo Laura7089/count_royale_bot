@@ -32,12 +32,12 @@ struct CliConfig {
     redis_db: Option<i64>,
 }
 
-pub struct CountlyConfig {
+pub struct CountniteConfig {
     pub redis_connect: ConnectionInfo,
     pub discord_token: String,
 }
 
-impl CountlyConfig {
+impl CountniteConfig {
     pub fn get() -> Result<Self, Box<dyn Error>> {
         let cli_config = CliConfig::from_args();
 

@@ -1,0 +1,15 @@
+---
+
+language: minimal
+
+services:
+  - docker
+
+script:
+  - docker build -t laura7089/countnite .
+
+deploy:
+  provider: script
+  script: base docker_push.sh
+  on:
+    branch: master

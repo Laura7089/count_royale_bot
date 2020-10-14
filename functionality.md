@@ -16,5 +16,6 @@
 ## Implementation
 
 - Use Redis backend with persistence enabled
-- Store current number for each channel as something like `guild_id/channel_id/count`
-- Store participating players as something like `guild_id/channel_id/players`
+- Store current number for each channel as something like `{guild_id}/{channel_id}/count`
+- Store participating players as something like `{guild_id}/{channel_id}/players`
+- Store per-guild settings as something like `{guild_id}/settings` with serde json

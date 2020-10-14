@@ -8,6 +8,6 @@ RUN cargo build --release
 
 FROM debian:buster-slim AS runner
 
-WORKDIR /opt/counting_bot
+WORKDIR /opt/$BIN_NAME
 COPY --from=builder /app/target/release/$BIN_NAME .
-ENTRYPOINT .
+ENTRYPOINT ./$BIN_NAME
